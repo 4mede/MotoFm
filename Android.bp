@@ -1,0 +1,148 @@
+cc_prebuilt_library_shared {
+	name: "libqcomfm_jni",
+	owner: "motorola",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: ["system_ext/lib64/libqcomfm_jni.so"],
+			shared_libs: [
+				"libandroid",
+				"liblog",
+				"libnativewindow",
+				"libc++",
+				"libc",
+				"libm",
+				"libdl",
+			],
+		},
+	},
+	prefer: true,
+	system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "ftm_fm_lib",
+	owner: "motorola",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: ["vendor/lib64/ftm_fm_lib.so"],
+			shared_libs: [
+				"libandroid",
+				"liblog",
+				"libnativewindow",
+				"libc++",
+				"libc",
+				"libm",
+				"libdl",
+			],
+		},
+	},
+	prefer: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "motorola.hardware.fmradio@1.0",
+	owner: "motorola",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: ["vendor/lib64/motorola.hardware.fmradio@1.0.so"],
+			shared_libs: [
+				"libandroid",
+				"liblog",
+				"libnativewindow",
+				"libc++",
+				"libc",
+				"libm",
+				"libdl",
+			],
+		},
+	},
+	prefer: true,
+}
+
+android_app_import {
+	name: "MotoFm",
+	owner: "motorola",
+	apk: "product/priv-app/FMPlayer/FMPlayer.apk",
+	preprocessed: true,
+	presigned: true,
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
+	required: [
+		"com.motorola.motosignature",
+		"moto-settings",
+		"MotoFmService",
+    ],
+	product_specific: true,
+	overrides: [
+		"FMRadio"
+	],
+}
+
+android_app_import {
+	name: "MotoFmService",
+	owner: "motorola",
+	apk: "system_ext/app/FmRadioService/FMRadioService.apk",
+	preprocessed: true,
+	presigned: true,
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
+	required: [
+		"com.motorola.motosignature",
+		"moto-settings",
+	],
+	system_ext_specific: true,
+}
+
+dex_import {
+	name: "boot-qcom.fmradio",
+	owner: "motorola",
+	jars: ["system/framework/boot-qcom.fmradio.vdex",
+    ],
+}
+
+dex_import {
+	name: "qcom.fmradio",
+	owner: "motorola",
+	jars: ["system/framework/qcom.fmradio.jar",
+    ],
+}
+
+prebuilt_etc {
+	name: "init.qti.fm",
+	owner: "motorola",
+	sub_dir: "init",
+	src: "vendor/etc/init/init.qti.fm.rc",
+	filename_from_src: true,
+	product_specific: true,
+}
+
+prebuilt_etc {
+	name: "com.motorola.fmplayer",
+	owner: "motorola",
+	sub_dir: "permissions",
+	src: "product/etc/permissions/privapp-permissions-com.motorola.fmplayer.xml",
+	filename_from_src: true,
+	product_specific: true,
+}
+
+prebuilt_etc {
+	name: "com.motorola.software.fmradioservice",
+	owner: "motorola",
+	sub_dir: "permissions",
+	src: "product/etc/permissions/com.motorola.software.fmradioservice.xml",
+	filename_from_src: true,
+	product_specific: true,
+}
