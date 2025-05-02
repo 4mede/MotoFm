@@ -11,8 +11,6 @@ PRODUCT_PACKAGES += \
     qcom.fmradio \
     motorola.hardware.fmradio \
     motorola.hardware.fmradio@1.0-service \
-    init.qti.fm.rc \
-    init.qti.fm.sh \
     FMRadioService \
     FMPlayer
     
