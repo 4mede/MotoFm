@@ -8,8 +8,9 @@ android_app_import {
     },
     overrides: [
         "FM2",
-        "FMRadio"
-        "RevampedFMRadio"
+        "FMRadio",
+        "RevampedFMRadio",
+    ],
     privileged: true,
     product_specific: true,
 }
