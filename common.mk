@@ -28,12 +28,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += qcom.fmradio
   
 # Permissions
-
 PRODUCT_COPY_FILES += \
-     $(call find-copy-subdir-files,*,vendor/motorola/MotoFm/prebuilt/permissions,product/etc/permissions)
-  
-AB_OTA_PARTITIONS += \
-    product
+    vendor/motorola/MotoFm/prebuilt/permissions/com.motorola.software.fmradioservice.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.motorola.software.fmradioservice.xml \
+        vendor/motorola/MotoFm/prebuilt/permissions/privapp-permissions-com.motorola.fmplayer.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-com.motorola.fmplayer.xml
 
 # Sepolicy
 BOARD_VENDOR_SEPOLICY_DIRS += \
