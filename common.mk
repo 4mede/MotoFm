@@ -13,9 +13,6 @@ PRODUCT_COPY_FILES += \
 # Moto Signature App
 $(call inherit-product, vendor/motorola/MotoSignatureApp/motosignatureapp.mk)
 
-# Motorola Settings Provider
-$(call inherit-product, vendor/motorola/MotorolaSettingsProvider/motorolasettingsprovider.mk)
-
 # Packages
 PRODUCT_PACKAGES += \
     libqcomfm_jni \
