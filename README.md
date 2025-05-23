@@ -7,7 +7,7 @@ $(call inherit-product, vendor/motorola/MotoFm/common.mk)
 Then clone the necessary repos:
 
 ```
-git clone -b 13 https://github.com/4mede/MotoFm.git vendor/motorola/MotoFm
+git clone -b 12 https://github.com/4mede/MotoFm.git vendor/motorola/MotoFm
 ```
 
 Moto Signature App repo: (needed to update moto apps in Play Store)
